@@ -156,14 +156,13 @@ andf2 <- data.frame(Chr2 = rep("", nrow(indf)),
 for (ri in seq(nrow(indf))) {
 # For GetSeq we need the Chr prefix for chromosome but not for ANNOVAR  
 # Assume indels are <40bp on the same chromosome
-		id <- indf$ID[ri]
-  chrom <- indf$chr[ri]
-       chr <- paste("chr", indf$chr[ri], sep="")
-    pos1 <- as.numeric(indf$startPos[ri])
-    pos2 <- as.numeric(indf$endPos[ri])
+   id 		<- indf$ID[ri]
+   chrom 	<- indf$chr[ri]
+   chr 		<- paste("chr", indf$chr[ri], sep="")
+   pos1 	<- as.numeric(indf$startPos[ri])
+   pos2 	<- as.numeric(indf$endPos[ri])
   
-    wt1 <- as.character(getSeq(Hsapiens,chr,start,start))
-    wt2 <- as.character(getSeq(Hsapiens,chr,end,end))
+    wt1 <- as.character(getSeq(SNP_Hsapiens,chr,pos1,pos2))
     
 # Fake the SNV to be just the complement of WT position (as SNV allele is not known)
 
@@ -171,29 +170,19 @@ if (wt1=="A") snv1 <- "T"
 if (wt1=="C") snv1 <- "G"
 if (wt1=="G") snv1 <- "C"
 if (wt1=="T") snv1 <- "A"
-
-if (wt2=="A") snv2 <- "T"
-if (wt2=="C") snv2 <- "G"
-if (wt2=="G") snv2 <- "C"
-if (wt2=="T") snv2 <- "A"
   
   andf1$Chr1[ri] <- chrom
   andf1$Pos1[ri] <- start
   andf1$Pos2[ri] <- start
   andf1$WT1[ri] <- wt1
   andf1$SNV1[ri] <-snv1
-  
-  andf2$Chr2[ri] <- chrom
-  andf2$Pos3[ri] <- end
-  andf2$Pos4[ri] <- end
-  andf2$WT2[ri] <- wt2
-  andf2$SNV2[ri] <-snv2
+
 
   }
 
 
 # Format for ANNOVAR  <15 43762161 43762161 T C>
 write.csv(andf1, file = file1 )
-write.csv(andf2, file = file2 )
+
 
 
