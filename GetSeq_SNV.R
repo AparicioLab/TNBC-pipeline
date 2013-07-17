@@ -172,8 +172,8 @@ if (wt1=="G") snv1 <- "C"
 if (wt1=="T") snv1 <- "A"
   
   andf1$Chr1[ri] <- chrom
-  andf1$Pos1[ri] <- start
-  andf1$Pos2[ri] <- start
+  andf1$Pos1[ri] <- pos1
+  andf1$Pos2[ri] <- pos2
   andf1$WT1[ri] <- wt1
   andf1$SNV1[ri] <-snv1
 
