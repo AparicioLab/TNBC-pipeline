@@ -65,8 +65,7 @@ indelfile="primerIn-TNBC-indel-fix-List.txt"
 p3file=paste("SNV_design","txt",sep=".")
 
 ###############################################
-file1 = paste(outpath,"SNV_Annotate-start.csv",sep="/")
-file2 = paste(outpath,"SNV_Annotate-end.csv",sep="/")
+file1 = paste(outpath,"SNV_Annotate.csv",sep="/")
 
 ############################
 outfile=paste(p3dir,p3file,sep="/")
