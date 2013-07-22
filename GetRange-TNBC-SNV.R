@@ -19,7 +19,9 @@ library(Rsamtools)
 #################################################
 # Directory structure - uncomment for first running of script
 Project="TNBC"
-homebase="/Users/dyap/Documents/Breast Cancer"
+# homebase="/Users/dyap/Documents/Breast Cancer" # MOMAC14
+homebase="/home/dyap/Projects/" # beast
+
 setwd(homebase)
 # system('mkdir TNBC')
 setwd(paste(homebase,Project,sep="/"))
