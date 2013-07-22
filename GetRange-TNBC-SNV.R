@@ -35,6 +35,7 @@ getwd()
 # Check if the hg19 library is install, if not install it and load it
 genome="BSgenome.Hsapiens.UCSC.hg19"
 library('BSgenome.Hsapiens.UCSC.hg19')
+library(SNPlocs.Hsapiens.dbSNP.20120608)
 
 # Load the latest available dnSNP for the version of bioconductor if not installed 
 len <-  length(available.SNPs())
@@ -92,7 +93,7 @@ table(indf$samp)
 
                     
 outdf <- data.frame(ID = rep("", nrow(indf)),
-					Chr = rep("", nrow(indf)),
+		     Chr = rep("", nrow(indf)),
                      Start = rep(0, nrow(indf)),
                      End = rep(0, nrow(indf)),
                      Indel = rep("", nrow(indf)),
@@ -106,9 +107,9 @@ offset <- snvoffset
 for (ri in seq(nrow(indf))) {
 	
 	id <- indf$ID[ri]
-   chr <- paste("chr", indf$chr[ri], sep="")
-  start <- as.numeric(indf$startPos[ri])
-    end <- as.numeric(indf$endPos[ri])
+    	chr <- paste("chr", indf$chr[ri], sep="")
+  	start <- as.numeric(indf$startPos[ri])
+    	end <- as.numeric(indf$endPos[ri])
 
 # The indel or SNV has to match exactly so we get the reference sequences from hg19
  idseq <- as.character(getSeq(Hsapiens,chr,start,end))
