@@ -164,7 +164,8 @@ for (ri in seq(nrow(indf))) {
    pos1 	<- as.numeric(indf$startPos[ri])
    pos2 	<- as.numeric(indf$endPos[ri])
   
-    wt1 <- as.character(getSeq(SNP_Hsapiens,chr,pos1,pos2))
+# SNV position cannot be SNP masked or else annotation will fail  
+    wt1 <- as.character(getSeq(Hsapiens,chr,pos1,pos2))
     
 # Fake the SNV to be just the complement of WT position (as SNV allele is not known)
 
