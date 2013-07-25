@@ -75,8 +75,8 @@ outfile=paste(p3dir,p3file,sep="/")
 input=paste(sourcedir,snvfile,sep="/")
 
 # offsets (sequences on either side of SNV,indel for design space)
-snvoffset=200
-indeloffset=200
+snvoffset=300
+indeloffset=300
 WToffset=5
 
 # Select the appropriate Genome (mask) - for reference only
